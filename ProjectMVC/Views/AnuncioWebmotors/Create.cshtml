@@ -1,0 +1,91 @@
+﻿@model ProjectMVC.Models.AnuncioWebmotors
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Novo Cadastro</h1>
+
+<h4>Anuncio Webmotors</h4>
+<hr />
+<div class="row">
+    <div class="col-md-7">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.marca, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.ValidationMessageFor(model => model.marca, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(c => c.marca)
+                        <select id="selMarca" class="form-control" onchange="ChangeMake(this);">
+                            <option value="0">Selecione um modelo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.modelo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.ValidationMessageFor(model => model.modelo, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(c => c.modelo)
+                        <select id="selModelo" class="form-control" onchange="ChangeModel(this);">
+                            <option value="0">Selecione um modelo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.LabelFor(model => model.versao, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="checkbox">
+                        @Html.ValidationMessageFor(model => model.versao, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(c => c.versao)
+                        <select id="selVersao" class="form-control" onchange="ChangeVersion(this);">
+                            <option value="0">Selecione uma Versao</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ano, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.ValidationMessageFor(model => model.ano, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.ano)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.quilometragem, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.ValidationMessageFor(model => model.quilometragem, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.quilometragem)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.observacao, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.ValidationMessageFor(model => model.observacao, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.observacao)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-light">Voltar</a>
+</div>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

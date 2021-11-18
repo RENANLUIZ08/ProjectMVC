@@ -1,0 +1,51 @@
+﻿@model ProjectMVC.Models.AnuncioWebmotors
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Voce deseja realmente excluir esse cadastro?</h3>
+<div>
+    <h4>Anuncio Webmotors</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.marca)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.marca)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.modelo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.modelo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.versao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.versao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ano)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ano)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.quilometragem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.quilometragem)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-light">Voltar</a>
+    </form>
+</div>
